@@ -1,0 +1,955 @@
+{
+	"info": {
+		"_postman_id": "f99860ec-d66f-47e6-94a4-93ee6c375928",
+		"name": "zajecia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16934068"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <style type=\"text/css\">\r",
+							"        .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"        .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"        .tftable tr {background-color:#ffffff;}\r",
+							"        .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"        .tftable tr:hover {background-color:#e0ffff;}\r",
+							"    </style>\r",
+							"\r",
+							"    <table class=\"tftable\" border=\"1\">\r",
+							"        <tr>\r",
+							"            <th>Total</th>\r",
+							"            <th>Count</th>\r",
+							"            <th>Per Page</th>\r",
+							"            <th>Current Page</th>\r",
+							"            <th>Total Pages</th>\r",
+							"        </tr>\r",
+							"        <tr>\r",
+							"            <td>{{response.meta.pagination.total}}</td>\r",
+							"            <td>{{response.meta.pagination.count}}</td>\r",
+							"            <td>{{response.meta.pagination.per_page}}</td>\r",
+							"            <td>{{response.meta.pagination.current_page}}</td>\r",
+							"            <td>{{response.meta.pagination.total_pages}}</td>\r",
+							"        </tr>\r",
+							"    </table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/accounts",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bills",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"pm.variables.get(\"variable_key\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/bills",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currencies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"KDM\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/currencies/KDM",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"currencies",
+						"KDM"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currencies_add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/currencies?enabled=true&default=false&code=KDM&name=Kudema&symbol=KDM&decimal_places=2",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"currencies"
+					],
+					"query": [
+						{
+							"key": "enabled",
+							"value": "true"
+						},
+						{
+							"key": "default",
+							"value": "false"
+						},
+						{
+							"key": "code",
+							"value": "KDM"
+						},
+						{
+							"key": "name",
+							"value": "Kudema"
+						},
+						{
+							"key": "symbol",
+							"value": "KDM"
+						},
+						{
+							"key": "decimal_places",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currencies_update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/currencies/KDM?decimal_places=8&name=najmankiepszczak",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"currencies",
+						"KDM"
+					],
+					"query": [
+						{
+							"key": "decimal_places",
+							"value": "8"
+						},
+						{
+							"key": "name",
+							"value": "najmankiepszczak"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currencies_delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/currencies/KDM",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"currencies",
+						"KDM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category_add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"edukacja\",\r\n\"notes\": \"Uczę się Postmana\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/categories",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories_update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"edukacj\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/categories/997?notes=Wydatki na edukację",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"997"
+					],
+					"query": [
+						{
+							"key": "notes",
+							"value": "Wydatki na edukację"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/categories",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "budget_post_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Sports Budget\",\r\n  \"active\": false,\r\n  \"notes\": \"sports budget\",\r\n  \"auto_budget_type\": \"reset\",\r\n  \"auto_budget_currency_id\": \"12\",\r\n  \"auto_budget_currency_code\": \"EUR\",\r\n  \"auto_budget_amount\": \"1000\",\r\n  \"auto_budget_period\": \"monthly\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/budgets",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"budgets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "budget_post_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Fun Budget\",\r\n  \"active\": false,\r\n  \"notes\": \"fun budget\",\r\n  \"auto_budget_type\": \"reset\",\r\n  \"auto_budget_currency_id\": \"13\",\r\n  \"auto_budget_currency_code\": \"EUR\",\r\n  \"auto_budget_amount\": \"2000\",\r\n  \"auto_budget_period\": \"monthly\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/budgets",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"budgets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account_add_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"another account_1\",\r\n  \"type\": \"asset\",\r\n  \"iban\": \"GB98MIDL07009312345678\",\r\n  \"bic\": \"BOFAUS3N\",\r\n  \"account_number\": \"7009312345678\",\r\n  \"opening_balance\": \"10000\",\r\n  \"currency_code\": \"EUR\",\r\n  \"active\": false,\r\n  \"order\": 1,\r\n  \"account_role\": \"defaultAsset\",\r\n    \"opening_balance_date\": \"present\",\r\n     \"opening_balance\": \"-1012.12\",\r\n  \"opening_balance_date\": \"2018-09-17T12:46:47+01:00\",\r\n  \"virtual_balance\": \"123.45\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/accounts",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account_add_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"another account_2\",\r\n  \"type\": \"asset\",\r\n  \"iban\": \"PL55991363073111424483954605\",\r\n  \"bic\": \"BOFAUS4N\",\r\n  \"account_number\": \"7029312345678\",\r\n  \"opening_balance\": \"20000\",\r\n  \r\n  \"currency_code\": \"EUR\",\r\n  \"active\": false,\r\n  \"order\": 1,\r\n  \"account_role\": \"defaultAsset\",\r\n    \"opening_balance_date\": \"2018-09-17T12:46:47+01:00\",\r\n     \"opening_balance\": \"-1012.12\",\r\n       \"virtual_balance\": \"123.45\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/accounts",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account_add_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"another account_3\",\r\n  \"type\": \"asset\",\r\n  \"iban\": \"PL64731526267062120989233065\",\r\n  \"bic\": \"BOFAUS5N\",\r\n  \"account_number\": \"7009322345678\",\r\n  \"opening_balance\": \"30000\",\r\n  \r\n  \"currency_code\": \"EUR\",\r\n  \"active\": false,\r\n  \"order\": 1,\r\n  \"account_role\": \"defaultAsset\",\r\n  \"opening_balance_date\": \"2024-03-13T00:03:00+01:00\"\r\n  \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fintech-testlab.coderslab.pl/api/v1/accounts",
+					"protocol": "https",
+					"host": [
+						"fintech-testlab",
+						"coderslab",
+						"pl"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0MCIsImp0aSI6IjBjYWIxZDU2NTgzMTllMWVhMjE1N2Q0YjUxZGJmMTU2Mzk1ZWZkNWRjMzMwMTc4MjI4NzA2YzI5MjMxMWIxMzBjMDVkM2E0NWYzNGE3M2IyIiwiaWF0IjoxNzEwMDgxOTM4LjAwMTYwNSwibmJmIjoxNzEwMDgxOTM4LjAwMTYxLCJleHAiOjE3NDE2MTc5MzcuOTg4MTcyLCJzdWIiOiIxNTg2Iiwic2NvcGVzIjpbXX0.OmlivI4wdHyPHzq3RqyDDReMWrU8eGI7iesy9BSN39H_Da6fRVBPHHZvO3lSU6aQ7rauZb0L098DTOlpPE_PrTF0OsRNCetjofCCq-RcVTmboHZfAwrmv0ZGvQtkKO280ClaCvx-K7itLKPx1eAvKSB7InZ7LDxggTFoGlL6w2StnncxDfVp_hnZM7PCM6id-UW8srJ8U7XeDRsEXqJeIjGXdBHKfZBoej3SezxnyUQI0t6F6gIjtTWP3qsITXtSXhOjHdYzRbg97qML1swHLk3eg4r-flU9MXd2X2qY-4tORE4QvWY8RW0KbTW8HbrO75VD7Bmb09Ggtn8wTs908ThJ-2b4ubNyqDCJpZ2qCzmi6YsHdo1aoaOypq1JOPQhOtfo1_kbloxR70FBcbmOXO5bFrSUxsYOBK2j2Uf3NXO6y4PaYOM9tDnBX7av4SDCp_gPl9D6nzSRBCOYGHqkqAO03YrTzu8JkbzFnCjwJzdID59Sv3oTou437OP50XVnZW-Iu7jcyb0NVJGp0kwzLV_V2re9D9GzYWnkDhcez8sfTdwn1ITclBTy4tPFXnr_1Uti0lOjhmm1Vjw_qwPihna6xWgMkRgEvcTP4NZTteqGz-jxtfiDViHo0H1eTV16gMaJPvkDYLyGO8nVHq3DdzXcaS0SjdfpCi5LGoBQMH8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
